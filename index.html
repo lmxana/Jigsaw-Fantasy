@@ -6,6 +6,16 @@
   <title>Jigsaw Puzzles Online - Play Free Puzzle Games | jigsawgame.online</title>
   <meta name="description" content="Play the best jigsaw puzzle games online for free! Enjoy a collection of beautifully designed puzzles including Jigsaw Fantasy, Favorite Puzzles, Daily Puzzle and more." />
   <link rel="canonical" href="https://jigsawgame.online/" />
+  
+  <!-- Google tag (gtag.js) - 使用您提供的新代码 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1E7NHPMHN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G1E7NHPMHN');
+  </script>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -358,6 +368,16 @@
         link.addEventListener('click', function() {
           mobileMenu.classList.add('hidden');
           document.body.style.overflow = 'auto';
+        });
+      });
+      
+      // Track outbound links to games
+      document.querySelectorAll('.game-iframe').forEach(iframe => {
+        iframe.addEventListener('load', function() {
+          gtag('event', 'game_view', {
+            'game_name': iframe.closest('.game-card').querySelector('h3').textContent,
+            'event_category': 'Game Interaction'
+          });
         });
       });
     });
