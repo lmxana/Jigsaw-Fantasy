@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jigsaw Fantasy - Free Online Puzzle Game | jigsawgame.online</title>
-  <meta name="description" content="Play Jigsaw Fantasy online for free! A relaxing and challenging jigsaw puzzle game that works on both desktop and mobile devices. No download required." />
+  <title>Jigsaw Puzzles Online - Play Free Puzzle Games | jigsawgame.online</title>
+  <meta name="description" content="Play the best jigsaw puzzle games online for free! Enjoy a collection of beautifully designed puzzles including Jigsaw Fantasy, Favorite Puzzles, Daily Puzzle and more." />
   <link rel="canonical" href="https://jigsawgame.online/" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,25 +36,35 @@
       background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
     }
     
-    .game-container {
+    .game-card {
       transition: all 0.3s ease;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .game-container:hover {
-      box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .feature-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
     }
     
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .game-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f0f0f0;
+    }
+    
+    .game-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
     
     .nav-link {
@@ -76,31 +86,6 @@
       width: 100%;
     }
     
-    .section-title {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 50px;
-      height: 4px;
-      background: linear-gradient(90deg, #007AFF, #34C759);
-      border-radius: 2px;
-    }
-    
-    .floating-btn {
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
     .loading-dots:after {
       content: '';
       animation: dots 1.5s infinite;
@@ -110,6 +95,19 @@
       0%, 20% { content: '.'; }
       40% { content: '..'; }
       60%, 100% { content: '...'; }
+    }
+    
+    /* Simple grid for games */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -121,14 +119,12 @@
         <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center mr-3">
           <i class="fas fa-puzzle-piece text-white"></i>
         </div>
-        <span class="text-xl font-bold text-apple-dark">Jigsaw Fantasy</span>
+        <span class="text-xl font-bold text-apple-dark">Jigsaw Puzzles</span>
       </div>
       
       <nav class="hidden md:flex space-x-8">
-        <a href="#game" class="nav-link font-medium">Play</a>
-        <a href="#about" class="nav-link font-medium">About</a>
-        <a href="#features" class="nav-link font-medium">Features</a>
-        <a href="#how-to-play" class="nav-link font-medium">How to Play</a>
+        <a href="#featured" class="nav-link font-medium">Featured</a>
+        <a href="#all-games" class="nav-link font-medium">All Games</a>
       </nav>
       
       <button class="md:hidden text-apple-dark" id="menu-toggle">
@@ -138,146 +134,107 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-gradient text-white py-16 md:py-24">
+  <section class="hero-gradient text-white py-16 md:py-20">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Jigsaw Fantasy</h1>
-      <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8">Immerse yourself in a magical world of beautiful jigsaw puzzles</p>
-      <a href="#game" class="inline-block bg-white text-apple-blue font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 floating-btn">
-        Play Now <i class="fas fa-arrow-right ml-2"></i>
-      </a>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Jigsaw Puzzle Collection</h1>
+      <p class="text-xl md:text-2xl max-w-2xl mx-auto">Play the best online jigsaw puzzles for free</p>
     </div>
   </section>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12 md:py-16">
-    <!-- Game Iframe -->
-    <section id="game" class="mb-16">
-      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 section-title mx-auto">Play Jigsaw Fantasy Online</h2>
-      <div class="game-container relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden border border-gray-100" style="padding-top: 56.25%;">
-        <div id="loader" class="absolute inset-0 flex items-center justify-center bg-gray-100">
-          <div class="text-center">
-            <div class="w-16 h-16 border-4 border-apple-blue border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-apple-light">Loading game<span class="loading-dots"></span></p>
+  <main class="container mx-auto px-4 py-12">
+    <!-- Featured Game -->
+    <section id="featured" class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6">Featured Puzzle</h2>
+      <div class="game-card rounded-2xl p-6">
+        <h3 class="text-2xl font-bold text-apple-dark mb-4">Jigsaw Fantasy</h3>
+        <p class="text-apple-light mb-6">Immerse yourself in a magical world of beautiful fantasy-themed jigsaw puzzles with stunning visuals and multiple difficulty levels.</p>
+        <div class="game-container">
+          <div id="loader-featured" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div class="text-center">
+              <div class="w-16 h-16 border-4 border-apple-blue border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p class="text-apple-light">Loading game<span class="loading-dots"></span></p>
+            </div>
           </div>
-        </div>
-        <iframe 
-          src="https://games.crazygames.com/game/jigsaw-fantasy/index.html" 
-          class="absolute top-0 left-0 w-full h-full" 
-          frameborder="0" 
-          allowfullscreen
-          allow="autoplay; encrypted-media"
-          id="game-iframe"
-          onload="document.getElementById('loader').style.display = 'none';">
-        </iframe>
-      </div>
-      <div class="text-center mt-6 text-apple-light">
-        <p>Game loads in the container above. If you experience any issues, try refreshing the page.</p>
-      </div>
-    </section>
-
-    <!-- Game Overview -->
-    <section id="about" class="mb-16">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-semibold mb-6 section-title">About Jigsaw Fantasy</h2>
-        <p class="text-lg leading-relaxed text-gray-700 mb-6">
-          Jigsaw Fantasy is a captivating online puzzle game that transports you to a magical world of beautiful imagery and relaxing challenges. With its carefully curated collection of fantasy-themed puzzles, this game offers a perfect blend of mental stimulation and serene entertainment.
-        </p>
-        <p class="text-lg leading-relaxed text-gray-700">
-          Each puzzle features stunning artwork depicting mystical landscapes, magical creatures, and dreamlike scenes that will captivate your imagination as you piece together the fragments. The game offers multiple difficulty levels, allowing both beginners and puzzle experts to enjoy the experience at their own pace.
-        </p>
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="mb-16">
-      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-12 section-title mx-auto">Game Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="feature-card bg-white p-6 rounded-2xl shadow-md">
-          <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
-            <i class="fas fa-palette text-2xl text-apple-blue"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Stunning Visuals</h3>
-          <p class="text-gray-700">Experience breathtaking fantasy artwork with high-resolution images that come to life as you solve each puzzle.</p>
-        </div>
-        
-        <div class="feature-card bg-white p-6 rounded-2xl shadow-md">
-          <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-4">
-            <i class="fas fa-sliders-h text-2xl text-apple-blue"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Customizable Difficulty</h3>
-          <p class="text-gray-700">Choose from multiple piece counts ranging from easy (50 pieces) to challenging (500 pieces) based on your skill level.</p>
-        </div>
-        
-        <div class="feature-card bg-white p-6 rounded-2xl shadow-md">
-          <div class="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
-            <i class="fas fa-save text-2xl text-apple-blue"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Progress Saving</h3>
-          <p class="text-gray-700">Your progress is automatically saved, allowing you to return to unfinished puzzles anytime without losing your work.</p>
+          <iframe 
+            src="https://games.crazygames.com/game/jigsaw-fantasy/index.html" 
+            class="game-iframe" 
+            frameborder="0" 
+            allowfullscreen
+            allow="autoplay; encrypted-media"
+            onload="document.getElementById('loader-featured').style.display = 'none';">
+          </iframe>
         </div>
       </div>
     </section>
 
-    <!-- How to Play -->
-    <section id="how-to-play" class="mb-16">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-semibold mb-6 section-title">How to Play</h2>
-        <div class="bg-apple-gray rounded-2xl p-6 md:p-8">
-          <ol class="list-decimal list-inside space-y-4 text-gray-700">
-            <li class="text-lg"><span class="font-medium">Start the game</span> by selecting a puzzle image and difficulty level.</li>
-            <li class="text-lg"><span class="font-medium">Drag and drop</span> pieces to the correct position on the board.</li>
-            <li class="text-lg"><span class="font-medium">Use the preview image</span> as a reference when you need help.</li>
-            <li class="text-lg"><span class="font-medium">Complete the puzzle</span> by connecting all pieces to reveal the full image.</li>
-            <li class="text-lg"><span class="font-medium">Change settings</span> anytime to adjust difficulty or choose a new image.</li>
-          </ol>
-        </div>
-        <p class="mt-6 text-lg text-gray-700">
-          The game saves your progress automatically, allowing you to return to unfinished puzzles anytime. Start now and enjoy your jigsaw fantasy!
-        </p>
-      </div>
-    </section>
-
-    <!-- Tips Section -->
-    <section class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-16">
-      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 section-title mx-auto">Pro Tips</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <div class="flex items-start">
-          <div class="bg-white p-3 rounded-xl shadow-sm mr-4">
-            <i class="fas fa-border-all text-apple-blue text-xl"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1">Start with the edges</h3>
-            <p class="text-gray-700">Begin by assembling the border pieces to create a frame for your puzzle.</p>
+    <!-- All Games -->
+    <section id="all-games">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-8">All Puzzle Games</h2>
+      <div class="games-grid">
+        <!-- Game 1: Favorite Puzzles -->
+        <div class="game-card rounded-2xl p-6">
+          <h3 class="text-xl font-bold text-apple-dark mb-4">Favorite Puzzles</h3>
+          <p class="text-apple-light mb-6">A collection of classic jigsaw puzzles with various themes and difficulty options. Perfect for puzzle enthusiasts of all skill levels.</p>
+          <div class="game-container">
+            <div id="loader-1" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+              <div class="text-center">
+                <div class="w-12 h-12 border-4 border-apple-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                <p class="text-apple-light text-sm">Loading<span class="loading-dots"></span></p>
+              </div>
+            </div>
+            <iframe 
+              src="https://games.crazygames.com/embed/favorite-puzzles/index.html" 
+              class="game-iframe" 
+              frameborder="0" 
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              onload="document.getElementById('loader-1').style.display = 'none';">
+            </iframe>
           </div>
         </div>
         
-        <div class="flex items-start">
-          <div class="bg-white p-3 rounded-xl shadow-sm mr-4">
-            <i class="fas fa-object-group text-apple-blue text-xl"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1">Sort by color and pattern</h3>
-            <p class="text-gray-700">Group pieces with similar colors or distinctive patterns to make them easier to find.</p>
+        <!-- Game 2: Daily Puzzle -->
+        <div class="game-card rounded-2xl p-6">
+          <h3 class="text-xl font-bold text-apple-dark mb-4">Daily Puzzle</h3>
+          <p class="text-apple-light mb-6">Challenge yourself with a new puzzle every day! Expand your skills with daily challenges and track your progress over time.</p>
+          <div class="game-container">
+            <div id="loader-2" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+              <div class="text-center">
+                <div class="w-12 h-12 border-4 border-apple-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                <p class="text-apple-light text-sm">Loading<span class="loading-dots"></span></p>
+              </div>
+            </div>
+            <iframe 
+              src="https://games.crazygames.com/embed/daily-puzzle/index.html" 
+              class="game-iframe" 
+              frameborder="0" 
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              onload="document.getElementById('loader-2').style.display = 'none';">
+            </iframe>
           </div>
         </div>
         
-        <div class="flex items-start">
-          <div class="bg-white p-3 rounded-xl shadow-sm mr-4">
-            <i class="fas fa-search text-apple-blue text-xl"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1">Focus on small sections</h3>
-            <p class="text-gray-700">Work on completing smaller sections that you can then connect to the whole.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start">
-          <div class="bg-white p-3 rounded-xl shadow-sm mr-4">
-            <i class="fas fa-image text-apple-blue text-xl"></i>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-1">Use the preview image</h3>
-            <p class="text-gray-700">Refer to the complete image frequently to guide your piece placement.</p>
+        <!-- Game 3: Pixel Sphere 3D -->
+        <div class="game-card rounded-2xl p-6">
+          <h3 class="text-xl font-bold text-apple-dark mb-4">Pixel Sphere 3D</h3>
+          <p class="text-apple-light mb-6">Experience puzzles in a new dimension with this innovative 3D jigsaw game. Rotate and assemble pieces on a spherical canvas.</p>
+          <div class="game-container">
+            <div id="loader-3" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+              <div class="text-center">
+                <div class="w-12 h-12 border-4 border-apple-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                <p class="text-apple-light text-sm">Loading<span class="loading-dots"></span></p>
+              </div>
+            </div>
+            <iframe 
+              src="https://games.crazygames.com/embed/pixel-sphere-3d/index.html" 
+              class="game-iframe" 
+              frameborder="0" 
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              onload="document.getElementById('loader-3').style.display = 'none';">
+            </iframe>
           </div>
         </div>
       </div>
@@ -285,47 +242,14 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-apple-dark text-white pt-12 pb-8">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Jigsaw Fantasy</h3>
-          <p class="text-gray-400">The ultimate online jigsaw puzzle experience with magical fantasy themes.</p>
+  <footer class="bg-apple-dark text-white pt-12 pb-8 mt-16">
+    <div class="container mx-auto px-4 text-center">
+      <div class="mb-6">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-puzzle-piece text-white"></i>
         </div>
-        
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="#game" class="text-gray-400 hover:text-white transition-colors">Play Game</a></li>
-            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-            <li><a href="#how-to-play" class="text-gray-400 hover:text-white transition-colors">How to Play</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Legal</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Copyright</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Connect</h3>
-          <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-apple-blue transition-colors">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-apple-blue transition-colors">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-apple-blue transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
+        <h3 class="text-lg font-semibold">Jigsaw Puzzles Online</h3>
+        <p class="text-gray-400 mt-2">The best collection of free online jigsaw puzzles</p>
       </div>
       
       <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
@@ -342,10 +266,8 @@
       </button>
       
       <div class="mt-12 space-y-6">
-        <a href="#game" class="block text-lg font-medium">Play</a>
-        <a href="#about" class="block text-lg font-medium">About</a>
-        <a href="#features" class="block text-lg font-medium">Features</a>
-        <a href="#how-to-play" class="block text-lg font-medium">How to Play</a>
+        <a href="#featured" class="block text-lg font-medium">Featured</a>
+        <a href="#all-games" class="block text-lg font-medium">All Games</a>
       </div>
     </div>
   </div>
@@ -374,28 +296,6 @@
           mobileMenu.classList.add('hidden');
           document.body.style.overflow = 'auto';
         });
-      });
-      
-      // Add intersection observer for section highlighting
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('nav a');
-      
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-              link.classList.remove('text-apple-blue');
-              if (link.getAttribute('href').includes(id)) {
-                link.classList.add('text-apple-blue');
-              }
-            });
-          }
-        });
-      }, { threshold: 0.5 });
-      
-      sections.forEach(section => {
-        observer.observe(section);
       });
     });
   </script>
