@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jigsaw Puzzles Online - Play Free Puzzle Games | jigsawgame.online</title>
-  <meta name="description" content="Play the best jigsaw puzzle games online for free! Enjoy a collection of beautifully designed puzzles including Jigsaw Fantasy, Favorite Puzzles, Daily Puzzle and more." />
+  <title>Jigsaw Fantasy - Play Free Online Jigsaw Puzzles | jigsawgame.online</title>
+  <meta name="description" content="Play Jigsaw Fantasy and create custom jigsaw puzzles for free. Enjoy beautiful fantasy-themed puzzles with multiple difficulty levels on any device." />
+  <meta name="keywords" content="jigsaw puzzles, Jigsaw Fantasy, online puzzles, free puzzle games, custom puzzles, jigsawgame.online" />
   <link rel="canonical" href="https://jigsawgame.online/" />
   
-  <!-- Google AdSense Code -->
+  <!-- Google AdSense Code - PRESERVED -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8345911073873616"
      crossorigin="anonymous"></script>
   
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) - PRESERVED -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1E7NHPMHN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,28 +21,28 @@
     gtag('config', 'G-G1E7NHPMHN');
   </script>
   
-  <!-- Monetag code for ad network -->
+  <!-- Monetag code - PRESERVED -->
   <meta name="monetag" content="8706c7052c8ab14673e8d2e3ddfcd0ec">
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Jigsaw Puzzles Online",
+    "url": "https://jigsawgame.online/",
+    "description": "Play Jigsaw Fantasy and custom jigsaw puzzles online for free",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jigsawgame.online/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary-blue': '#2563EB',
-            'secondary-blue': '#1E40AF',
-            'dark-blue': '#1E3A8A',
-            'light-blue': '#DBEAFE',
-            'dark-bg': '#0F172A',
-            'light-bg': '#1E293B',
-            'accent-blue': '#3B82F6'
-          }
-        }
-      }
-    }
-  </script>
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
@@ -74,7 +75,7 @@
     .game-container {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%;
       overflow: hidden;
       border-radius: 12px;
       background: #1E293B;
@@ -108,286 +109,1179 @@
       width: 100%;
     }
     
-    .loading-dots:after {
-      content: '';
-      animation: dots 1.5s infinite;
-    }
-    
-    @keyframes dots {
-      0%, 20% { content: '.'; }
-      40% { content: '..'; }
-      60%, 100% { content: '...'; }
-    }
-    
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    @media (max-width: 768px) {
-      .games-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .header-bg {
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .footer-bg {
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
-      transition: all 0.3s ease;
-    }
-    
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-    }
-    
-    .section-title {
+    /* Jigsaw Puzzle Game Styles */
+    #puzzle-container {
       position: relative;
-      padding-bottom: 15px;
+      background: #1E293B;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 900px;
     }
     
-    .section-title:after {
-      content: '';
+    #puzzle-board {
+      position: relative;
+      margin: 0 auto;
+      background: #0F172A;
+      border: 2px solid #3B82F6;
+      border-radius: 8px;
+    }
+    
+    .puzzle-piece {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, #2563EB, #3B82F6);
-      border-radius: 2px;
+      cursor: move;
+      transition: transform 0.1s;
+      border: 1px solid rgba(255,255,255,0.1);
     }
     
-    .section-title.center:after {
-      left: 50%;
-      transform: translateX(-50%);
+    .puzzle-piece:hover {
+      transform: scale(1.05);
+      z-index: 1000;
+    }
+    
+    .puzzle-piece.dragging {
+      opacity: 0.8;
+      z-index: 1001;
+    }
+    
+    .puzzle-piece.correct {
+      cursor: default;
+      border: 1px solid #10B981;
+    }
+    
+    #preview-image {
+      max-width: 200px;
+      border: 2px solid #3B82F6;
+      border-radius: 8px;
+    }
+    
+    .page-content {
+      display: none;
+    }
+    
+    .page-content.active {
+      display: block;
+    }
+    
+    .tab-button {
+      padding: 10px 20px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #E2E8F0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .tab-button:hover {
+      background: rgba(37, 99, 235, 0.2);
+    }
+    
+    .tab-button.active {
+      background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+      color: white;
     }
   </style>
 </head>
 <body class="text-gray-200">
   <!-- Header -->
-  <header class="sticky top-0 z-50 header-bg shadow-sm">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center">
-        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary-blue to-secondary-blue flex items-center justify-center mr-3">
-          <i class="fas fa-puzzle-piece text-white"></i>
+  <header class="sticky top-0 z-50 bg-gray-900 shadow-lg">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center mr-3">
+            <i class="fas fa-puzzle-piece text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Jigsaw Puzzles Online</span>
         </div>
-        <span class="text-xl font-bold text-white">Jigsaw Puzzles</span>
+        
+        <nav class="hidden md:flex space-x-6">
+          <a href="#home" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="home">Home</a>
+          <a href="#custom-puzzles" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a>
+          <a href="#online-games" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="online-games">More Games</a>
+          <a href="#about" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="about">About</a>
+          <a href="#blog" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="blog">Puzzle Tips</a>
+        </nav>
+        
+        <button class="md:hidden text-gray-300 hover:text-white" id="menu-toggle">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
       </div>
-      
-      <nav class="hidden md:flex space-x-8">
-        <a href="#featured" class="nav-link font-medium text-gray-300 hover:text-white">Featured</a>
-        <a href="#all-games" class="nav-link font-medium text-gray-300 hover:text-white">All Games</a>
-      </nav>
-      
-      <button class="md:hidden text-gray-300 hover:text-white" id="menu-toggle">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-gradient text-white py-16 md:py-20">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Jigsaw Puzzle Collection</h1>
-      <p class="text-xl md:text-2xl max-w-2xl mx-auto text-blue-100">Play the best online jigsaw puzzles for free</p>
-      <div class="mt-8 flex justify-center space-x-4">
-        <div class="w-4 h-4 rounded-full bg-white opacity-60"></div>
-        <div class="w-4 h-4 rounded-full bg-blue-300"></div>
-        <div class="w-4 h-4 rounded-full bg-white opacity-60"></div>
-        <div class="w-4 h-4 rounded-full bg-blue-300"></div>
-        <div class="w-4 h-4 rounded-full bg-white opacity-60"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12">
-    <!-- Featured Game -->
-    <section id="featured" class="mb-16">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-white section-title">Featured Puzzle</h2>
-      <div class="game-card rounded-2xl p-6">
-        <h3 class="text-2xl font-bold text-white mb-4">Jigsaw Fantasy</h3>
-        <p class="mb-6 text-gray-300">Immerse yourself in a magical world of beautiful fantasy-themed jigsaw puzzles with stunning visuals and multiple difficulty levels.</p>
-        <div class="game-container">
-          <div id="loader-featured" class="absolute inset-0 flex items-center justify-center bg-dark-bg">
-            <div class="text-center">
-              <div class="w-16 h-16 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-              <p class="text-gray-400">Loading game<span class="loading-dots"></span></p>
-            </div>
-          </div>
-          <iframe 
-            src="https://games.crazygames.com/game/jigsaw-fantasy/index.html" 
-            class="game-iframe" 
-            frameborder="0" 
-            allowfullscreen
-            allow="autoplay; encrypted-media"
-            onload="document.getElementById('loader-featured').style.display = 'none';">
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- All Games -->
-    <section id="all-games">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-8 text-white section-title">All Puzzle Games</h2>
-      <div class="games-grid">
-        <!-- Game 1: Favorite Puzzles -->
-        <div class="game-card rounded-2xl p-6">
-          <h3 class="text-xl font-bold text-white mb-4">Favorite Puzzles</h3>
-          <p class="mb-6 text-gray-300">A collection of classic jigsaw puzzles with various themes and difficulty options. Perfect for puzzle enthusiasts of all skill levels.</p>
-          <div class="game-container">
-            <div id="loader-1" class="absolute inset-0 flex items-center justify-center bg-dark-bg">
-              <div class="text-center">
-                <div class="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                <p class="text-gray-400 text-sm">Loading<span class="loading-dots"></span></p>
-              </div>
-            </div>
-            <iframe 
-              src="https://games.crazygames.com/embed/favorite-puzzles/index.html" 
-              class="game-iframe" 
-              frameborder="0" 
-              allowfullscreen
-              allow="autoplay; encrypted-media"
-              onload="document.getElementById('loader-1').style.display = 'none';">
-            </iframe>
-          </div>
-        </div>
-        
-        <!-- Game 2: Daily Puzzle -->
-        <div class="game-card rounded-2xl p-6">
-          <h3 class="text-xl font-bold text-white mb-4">Daily Puzzle</h3>
-          <p class="mb-6 text-gray-300">Challenge yourself with a new puzzle every day! Expand your skills with daily challenges and track your progress over time.</p>
-          <div class="game-container">
-            <div id="loader-2" class="absolute inset-0 flex items-center justify-center bg-dark-bg">
-              <div class="text-center">
-                <div class="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                <p class="text-gray-400 text-sm">Loading<span class="loading-dots"></span></p>
-              </div>
-            </div>
-            <iframe 
-              src="https://games.crazygames.com/embed/daily-puzzle/index.html" 
-              class="game-iframe" 
-              frameborder="0" 
-              allowfullscreen
-              allow="autoplay; encrypted-media"
-              onload="document.getElementById('loader-2').style.display = 'none';">
-            </iframe>
-          </div>
-        </div>
-        
-        <!-- Game 3: Pixel Sphere 3D -->
-        <div class="game-card rounded-2xl p-6">
-          <h3 class="text-xl font-bold text-white mb-4">Pixel Sphere 3D</h3>
-          <p class="mb-6 text-gray-300">Experience puzzles in a new dimension with this innovative 3D jigsaw game. Rotate and assemble pieces on a spherical canvas.</p>
-          <div class="game-container">
-            <div id="loader-3" class="absolute inset-0 flex items-center justify-center bg-dark-bg">
-              <div class="text-center">
-                <div class="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                <p class="text-gray-400 text-sm">Loading<span class="loading-dots"></span></p>
-              </div>
-            </div>
-            <iframe 
-              src="https://games.crazygames.com/embed/pixel-sphere-3d/index.html" 
-              class="game-iframe" 
-              frameborder="0" 
-              allowfullscreen
-              allow="autoplay; encrypted-media"
-              onload="document.getElementById('loader-3').style.display = 'none';">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer-bg text-white pt-12 pb-8 mt-16">
-    <div class="container mx-auto px-4 text-center">
-      <div class="mb-6">
-        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-primary-blue to-secondary-blue flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-puzzle-piece text-white"></i>
-        </div>
-        <h3 class="text-lg font-semibold">Jigsaw Puzzles Online</h3>
-        <p class="text-gray-400 mt-2">The best collection of free online jigsaw puzzles</p>
-      </div>
-      
-      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-        <p>&copy; 2025 jigsawgame.online. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Mobile Menu (hidden by default) -->
+  <!-- Mobile Menu -->
   <div class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden" id="mobile-menu">
-    <div class="absolute top-0 right-0 h-full w-64 bg-dark-bg shadow-lg p-6 border-l border-gray-800">
+    <div class="absolute top-0 right-0 h-full w-64 bg-gray-900 shadow-lg p-6">
       <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="close-menu">
         <i class="fas fa-times text-xl"></i>
       </button>
       
       <div class="mt-12 space-y-6">
-        <a href="#featured" class="block text-lg font-medium text-gray-300 hover:text-white">Featured</a>
-        <a href="#all-games" class="block text-lg font-medium text-gray-300 hover:text-white">All Games</a>
+        <a href="#home" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="home">Home</a>
+        <a href="#custom-puzzles" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a>
+        <a href="#online-games" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="online-games">More Games</a>
+        <a href="#about" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="about">About</a>
+        <a href="#blog" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="blog">Puzzle Tips</a>
       </div>
     </div>
   </div>
 
+  <!-- Main Content Container -->
+  <main class="container mx-auto px-4 py-8">
+    
+    <!-- Home Page -->
+    <div id="home" class="page-content active">
+      <section class="hero-gradient text-white py-16 rounded-2xl mb-8">
+        <div class="text-center px-4">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Jigsaw Puzzles Online</h1>
+          <p class="text-xl md:text-2xl max-w-3xl mx-auto">Discover the magic of Jigsaw Fantasy, create custom puzzles, and enjoy hours of brain-teasing fun!</p>
+        </div>
+      </section>
+      
+      <!-- Featured Game: Jigsaw Fantasy - Now on Home Page -->
+      <section class="mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold text-white">Featured: Jigsaw Fantasy</h2>
+          <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">Most Popular</span>
+        </div>
+        
+        <p class="text-xl text-gray-300 mb-8">Experience the enchanting world of Jigsaw Fantasy, featuring beautifully crafted fantasy-themed puzzles with stunning visuals and multiple difficulty levels to challenge players of all skill levels.</p>
+        
+        <div class="game-card rounded-2xl p-6">
+          <div class="game-container">
+            <div id="loader-fantasy" class="absolute inset-0 flex items-center justify-center bg-gray-900">
+              <div class="text-center">
+                <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p class="text-gray-400">Loading Jigsaw Fantasy...</p>
+              </div>
+            </div>
+            <iframe 
+              src="https://games.crazygames.com/embed/jigsaw-fantasy/index.html" 
+              class="game-iframe" 
+              frameborder="0" 
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              onload="document.getElementById('loader-fantasy').style.display = 'none';">
+            </iframe>
+          </div>
+        </div>
+        
+        <div class="mt-8 bg-gray-800 rounded-xl p-6">
+          <h2 class="text-2xl font-bold mb-4">About Jigsaw Fantasy</h2>
+          <p class="text-gray-300 mb-4">Jigsaw Fantasy is a beautifully designed puzzle game that transports players to magical realms through its enchanting artwork and engaging gameplay. With various difficulty settings ranging from beginner to expert, it's the perfect choice for puzzle enthusiasts of all ages and skill levels.</p>
+          <ul class="space-y-2 text-gray-300">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Multiple difficulty levels to suit all players</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Stunning fantasy-themed artwork and visuals</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Intuitive drag-and-drop gameplay mechanics</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Progress tracking and achievement system</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Regular updates with new puzzle content</li>
+          </ul>
+          <div class="mt-4 p-4 bg-gray-900 rounded-lg">
+            <p class="text-sm text-gray-400"><i class="fas fa-info-circle mr-2"></i>Jigsaw Fantasy is provided by our partners at CrazyGames. All game content is the property of its respective creators.</p>
+          </div>
+        </div>
+      </section>
+      
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <div class="game-card rounded-xl p-6 text-center">
+          <i class="fas fa-upload text-4xl text-green-500 mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Custom Puzzles</h3>
+          <p class="text-gray-300 mb-4">Create personalized puzzles from our extensive gallery or upload your own images</p>
+          <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-white page-nav" data-page="custom-puzzles">Create Puzzle</button>
+        </div>
+        
+        <div class="game-card rounded-xl p-6 text-center">
+          <i class="fas fa-trophy text-4xl text-yellow-500 mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Challenge Yourself</h3>
+          <p class="text-gray-300 mb-4">Multiple difficulty levels from 25 to 400 pieces for all skill levels</p>
+          <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-white page-nav" data-page="online-games">Explore Games</button>
+        </div>
+      </div>
+      
+      <section class="bg-gray-800 rounded-xl p-8">
+        <h2 class="text-2xl font-bold mb-6">Why Choose Our Jigsaw Puzzles?</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-blue-400">Premium Gaming Experience</h3>
+            <p class="text-gray-300">Our platform offers high-quality jigsaw puzzles with smooth gameplay, beautiful graphics, and intuitive controls. Whether you're playing Jigsaw Fantasy or creating custom puzzles, you'll enjoy a seamless experience across all devices.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-green-400">Endless Variety</h3>
+            <p class="text-gray-300">From fantasy-themed puzzles to custom creations, we offer unlimited puzzle possibilities. Upload your favorite photos, choose from our curated gallery, or dive into Jigsaw Fantasy's magical worlds - there's always something new to discover.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-purple-400">Completely Free</h3>
+            <p class="text-gray-300">Enjoy all our puzzle games without any cost. We believe in providing quality entertainment that's accessible to everyone, with no hidden fees or subscriptions required.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-yellow-400">Family Friendly</h3>
+            <p class="text-gray-300">Our puzzles are suitable for all ages, making them perfect for family game nights or educational purposes. Develop problem-solving skills, improve concentration, and have fun together!</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Custom Puzzles Page -->
+    <div id="custom-puzzles" class="page-content">
+      <section>
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Create Your Own Jigsaw Puzzles</h1>
+        <p class="text-xl text-gray-300 mb-8">Choose from our gallery of stunning images or upload your own photos to create personalized puzzles!</p>
+        
+        <!-- Puzzle Controls -->
+        <div class="bg-gray-800 rounded-xl p-6 mb-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-lg font-semibold mb-3">Select Image</h3>
+              <div class="flex gap-2 mb-4">
+                <button id="gallery-btn" class="tab-button rounded active">Gallery</button>
+                <button id="upload-btn" class="tab-button rounded">Upload Image</button>
+              </div>
+              
+              <!-- Gallery Section -->
+              <div id="gallery-section">
+                <div class="grid grid-cols-5 gap-2 mb-4">
+                  <img src="https://i.postimg.cc/MHbQ1kPZ/1.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="0">
+                  <img src="https://i.postimg.cc/sfpSkSjF/2.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="1">
+                  <img src="https://i.postimg.cc/13zqVjpP/3.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="2">
+                  <img src="https://i.postimg.cc/xTnHnC8X/4.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="3">
+                  <img src="https://i.postimg.cc/X7L5JbBQ/5.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="4">
+                  <img src="https://i.postimg.cc/VkHbqWRt/6.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="5">
+                  <img src="https://i.postimg.cc/zfbH0Htc/7.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="6">
+                  <img src="https://i.postimg.cc/cJpgj1P4/8.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="7">
+                  <img src="https://i.postimg.cc/B62LG9G5/9.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="8">
+                  <img src="https://i.postimg.cc/KjN1RPjR/10.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="9">
+                </div>
+              </div>
+              
+              <!-- Upload Section -->
+              <div id="upload-section" style="display: none;">
+                <input type="file" id="image-upload" accept="image/*" class="mb-4 text-gray-300">
+                <p class="text-sm text-gray-400">Upload your own image (JPG, PNG, GIF). Max file size: 5MB</p>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold mb-3">Puzzle Settings</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm mb-2">Difficulty Level:</label>
+                  <select id="difficulty" class="w-full p-2 rounded bg-gray-700 text-white">
+                    <option value="25">Beginner (25 pieces)</option>
+                    <option value="49">Intermediate (49 pieces)</option>
+                    <option value="100">Advanced (100 pieces)</option>
+                    <option value="225">Expert (225 pieces)</option>
+                    <option value="400">Master (400 pieces)</option>
+                  </select>
+                </div>
+                
+                <button id="start-puzzle" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold">
+                  Start Puzzle
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Game Stats -->
+        <div id="game-stats" class="bg-gray-800 rounded-xl p-4 mb-6" style="display: none;">
+          <div class="flex justify-between items-center flex-wrap gap-4">
+            <div class="flex gap-6">
+              <div>
+                <span class="text-gray-400">Time:</span>
+                <span id="timer" class="ml-2 font-semibold">00:00</span>
+              </div>
+              <div>
+                <span class="text-gray-400">Moves:</span>
+                <span id="moves" class="ml-2 font-semibold">0</span>
+              </div>
+              <div>
+                <span class="text-gray-400">Progress:</span>
+                <span id="progress" class="ml-2 font-semibold">0%</span>
+              </div>
+            </div>
+            
+            <div class="flex gap-2">
+              <button id="show-preview" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded text-sm">
+                <i class="fas fa-eye mr-1"></i> Preview
+              </button>
+              <button id="solve-puzzle" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded text-sm">
+                <i class="fas fa-check mr-1"></i> Solve
+              </button>
+              <button id="reset-puzzle" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded text-sm">
+                <i class="fas fa-redo mr-1"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Puzzle Container -->
+        <div id="puzzle-container" style="display: none;">
+          <canvas id="puzzle-board"></canvas>
+          <img id="preview-image" style="display: none;" class="mt-4 mx-auto">
+        </div>
+        
+        <!-- Completion Modal -->
+        <div id="completion-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+          <div class="bg-gray-800 rounded-xl p-8 max-w-md text-center">
+            <h2 class="text-3xl font-bold mb-4 text-green-400">Puzzle Complete!</h2>
+            <div class="space-y-2 mb-6">
+              <p class="text-lg">Time: <span id="final-time" class="font-semibold"></span></p>
+              <p class="text-lg">Moves: <span id="final-moves" class="font-semibold"></span></p>
+            </div>
+            <button id="play-again" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold">
+              Play Again
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Custom Puzzle Tips Section -->
+      <section class="mt-12 bg-gray-800 rounded-xl p-8">
+        <h2 class="text-2xl font-bold mb-6">Tips for Creating Great Custom Puzzles</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-blue-400">Choose the Right Image</h3>
+            <p class="text-gray-300">High-contrast images with distinct elements work best for puzzles. Landscape photos, detailed illustrations, and images with varied colors and textures provide the most satisfying puzzle experience.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-green-400">Start with Easier Levels</h3>
+            <p class="text-gray-300">If you're new to jigsaw puzzles, begin with the 25-piece option to get familiar with the controls before moving to more challenging levels. Gradually increase difficulty as your skills improve.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-purple-400">Use the Preview Feature</h3>
+            <p class="text-gray-300">The preview button lets you reference the original image while solving the puzzle. This can be especially helpful for more difficult puzzles with similar colors or patterns.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 text-yellow-400">Share Your Creations</h3>
+            <p class="text-gray-300">Create puzzles from personal photos to share with friends and family. They'll enjoy solving puzzles made from meaningful images like vacation photos, family portraits, or special memories!</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Online Games Page -->
+    <div id="online-games" class="page-content">
+      <section>
+        <h1 class="text-3xl md:text-4xl font-bold mb-8">More Puzzle Games</h1>
+        <p class="text-xl text-gray-300 mb-8">Explore our collection of engaging puzzle games. Each offers a unique challenge and hours of entertainment!</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Game 1: Favorite Puzzles -->
+          <div class="game-card rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Favorite Puzzles</h3>
+            <p class="mb-6 text-gray-300">A diverse collection of classic jigsaw puzzles with various themes and difficulty options. Perfect for traditional puzzle lovers who enjoy diverse imagery and straightforward gameplay. Features seasonal themes and regular updates.</p>
+            <div class="game-container">
+              <div id="loader-1" class="absolute inset-0 flex items-center justify-center bg-gray-900">
+                <div class="text-center">
+                  <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                  <p class="text-gray-400 text-sm">Loading...</p>
+                </div>
+              </div>
+              <iframe 
+                src="https://games.crazygames.com/embed/favorite-puzzles/index.html" 
+                class="game-iframe" 
+                frameborder="0" 
+                allowfullscreen
+                allow="autoplay; encrypted-media"
+                onload="document.getElementById('loader-1').style.display = 'none';">
+              </iframe>
+            </div>
+            <div class="mt-4 p-3 bg-gray-900 rounded-lg">
+              <p class="text-sm text-gray-400"><i class="fas fa-info-circle mr-2"></i>Favorite Puzzles is provided by our partners at CrazyGames.</p>
+            </div>
+          </div>
+          
+          <!-- Game 2: Daily Puzzle -->
+          <div class="game-card rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Daily Puzzle</h3>
+            <p class="mb-6 text-gray-300">Challenge yourself with a new puzzle every day! Track your progress over time and compare your completion times with other players in this ever-refreshing puzzle experience. Perfect for building a daily puzzle-solving habit.</p>
+            <div class="game-container">
+              <div id="loader-2" class="absolute inset-0 flex items-center justify-center bg-gray-900">
+                <div class="text-center">
+                  <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                  <p class="text-gray-400 text-sm">Loading...</p>
+                </div>
+              </div>
+              <iframe 
+                src="https://games.crazygames.com/embed/daily-puzzle/index.html" 
+                class="game-iframe" 
+                frameborder="0" 
+                allowfullscreen
+                allow="autoplay; encrypted-media"
+                onload="document.getElementById('loader-2').style.display = 'none';">
+              </iframe>
+            </div>
+            <div class="mt-4 p-3 bg-gray-900 rounded-lg">
+              <p class="text-sm text-gray-400"><i class="fas fa-info-circle mr-2"></i>Daily Puzzle is provided by our partners at CrazyGames.</p>
+            </div>
+          </div>
+          
+          <!-- Game 3: Pixel Sphere 3D -->
+          <div class="game-card rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Pixel Sphere 3D</h3>
+            <p class="mb-6 text-gray-300">Experience puzzles in a revolutionary way! Rotate and assemble pieces on a spherical canvas for a truly three-dimensional puzzle experience that challenges your spatial reasoning. A must-try for puzzle enthusiasts looking for something different.</p>
+            <div class="game-container">
+              <div id="loader-3" class="absolute inset-0 flex items-center justify-center bg-gray-900">
+                <div class="text-center">
+                  <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                  <p class="text-gray-400 text-sm">Loading...</p>
+                </div>
+              </div>
+              <iframe 
+                src="https://games.crazygames.com/embed/pixel-sphere-3d/index.html" 
+                class="game-iframe" 
+                frameborder="0" 
+                allowfullscreen
+                allow="autoplay; encrypted-media"
+                onload="document.getElementById('loader-3').style.display = 'none';">
+              </iframe>
+            </div>
+            <div class="mt-4 p-3 bg-gray-900 rounded-lg">
+              <p class="text-sm text-gray-400"><i class="fas fa-info-circle mr-2"></i>Pixel Sphere 3D is provided by our partners at CrazyGames.</p>
+            </div>
+          </div>
+          
+          <!-- Game 4: Coming Soon -->
+          <div class="game-card rounded-2xl p-6 flex items-center justify-center">
+            <div class="text-center">
+              <i class="fas fa-clock text-5xl text-gray-500 mb-4"></i>
+              <h3 class="text-xl font-bold text-white mb-2">More Games Coming Soon!</h3>
+              <p class="text-gray-300">We're constantly adding new puzzle games to our collection. Check back regularly for new challenges and puzzle varieties! Subscribe to our newsletter to be the first to know about new additions.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Puzzle Benefits Section -->
+        <section class="mt-12 bg-gray-800 rounded-xl p-8">
+          <h2 class="text-2xl font-bold mb-6">The Benefits of Puzzle Games</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-blue-400">Cognitive Development</h3>
+              <p class="text-gray-300">Regular puzzle solving improves memory, problem-solving skills, and spatial reasoning. Studies show that engaging with puzzles can enhance neural connections and improve mental speed. It's a fun way to keep your mind sharp at any age.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-green-400">Stress Relief</h3>
+              <p class="text-gray-300">Focusing on puzzle completion can be meditative and relaxing. The sense of accomplishment from finishing a puzzle releases dopamine, improving mood and reducing stress levels. Puzzles provide a perfect escape from daily pressures.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-purple-400">Improved Productivity</h3>
+              <p class="text-gray-300">Short puzzle breaks can actually improve focus and productivity when returning to work tasks. The mental stimulation from puzzles enhances concentration and problem-solving abilities, making them perfect study or work companions.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-yellow-400">Social Connection</h3>
+              <p class="text-gray-300">Puzzles can be collaborative activities that bring people together. Share your custom puzzles with friends or work together on challenging puzzles to strengthen relationships. Family puzzle time creates lasting memories and fosters teamwork.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+    
+    <!-- About Page -->
+    <div id="about" class="page-content">
+      <section class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8">About Jigsaw Puzzles Online</h1>
+        
+        <div class="bg-gray-800 rounded-xl p-8 mb-8">
+          <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+          <p class="text-gray-300 mb-4">
+            At jigsawgame.online, we're passionate about bringing the joy of jigsaw puzzles to players worldwide. Our platform combines classic puzzle-solving satisfaction with modern technology, offering both traditional online games and innovative custom puzzle creation tools.
+          </p>
+          <p class="text-gray-300">
+            Whether you're a casual player looking for relaxation or a puzzle enthusiast seeking a challenge, our diverse collection has something for everyone. From our featured Jigsaw Fantasy game to customizable puzzles with your own images, we provide endless entertainment possibilities.
+          </p>
+          <p class="text-gray-300 mt-4">
+            We carefully select high-quality games from trusted partners to ensure an enjoyable experience for all ages. Our custom puzzle creator is developed in-house, providing a unique way to personalize your puzzle experience.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gray-800 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-blue-400">Features</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li><i class="fas fa-puzzle-piece text-green-500 mr-2"></i>Free-to-play puzzle games</li>
+              <li><i class="fas fa-puzzle-piece text-green-500 mr-2"></i>Custom puzzle creation from your images</li>
+              <li><i class="fas fa-puzzle-piece text-green-500 mr-2"></i>Multiple difficulty levels</li>
+              <li><i class="fas fa-puzzle-piece text-green-500 mr-2"></i>Progress tracking and statistics</li>
+              <li><i class="fas fa-puzzle-piece text-green-500 mr-2"></i>Mobile-friendly design</li>
+              <li><i class="fas fa-puzzle-piece text-green-500 mr-2"></i>Regular content updates</li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-800 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-green-400">Why Choose Us?</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>No downloads or registration required</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>Regular new content and features</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>Safe & family-friendly environment</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>Smooth gameplay across devices</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>Community-driven improvements</li>
+              <li><i class="fas fa-check text-blue-500 mr-2"></i>Completely free with no hidden costs</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-gray-800 rounded-xl p-8">
+          <h2 class="text-2xl font-bold mb-4">Privacy & Safety</h2>
+          <p class="text-gray-300 mb-4">
+            We take your privacy seriously. Our website uses cookies to enhance your gaming experience and provide personalized content. We never share your personal information with third parties without your consent.
+          </p>
+          <p class="text-gray-300">
+            All our games are carefully selected to ensure they're appropriate for players of all ages. We maintain a safe, ad-supported environment that allows us to keep our games free for everyone. Our embedded games are provided by reputable partners with their own privacy policies.
+          </p>
+          <p class="text-gray-300 mt-4">
+            For the custom puzzle feature, all image processing happens directly in your browser. We don't upload or store your personal images on our servers, ensuring your privacy is protected.
+          </p>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="bg-gray-800 rounded-xl p-8 mt-8">
+          <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-blue-400">Is jigsawgame.online completely free?</h3>
+              <p class="text-gray-300">Yes! All our puzzle games are completely free to play. We support the site through advertisements, so you never have to pay to enjoy our puzzles. We may offer premium features in the future, but the core gameplay will always remain free.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-green-400">Can I play on mobile devices?</h3>
+              <p class="text-gray-300">Absolutely! Our website is fully responsive and works on smartphones, tablets, and desktop computers. The touch controls are optimized for mobile play, allowing you to enjoy puzzles anywhere, anytime.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-purple-400">How often are new puzzles added?</h3>
+              <p class="text-gray-300">We regularly add new puzzles to our gallery and frequently update our game selection. The Daily Puzzle game refreshes with a new challenge every 24 hours. Our custom puzzle creator allows you to make unlimited puzzles from your own images.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-yellow-400">Are my uploaded images stored on your servers?</h3>
+              <p class="text-gray-300">No, we respect your privacy. Images uploaded for custom puzzles are processed directly in your browser and are not stored on our servers. This ensures your personal photos remain private and secure.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-red-400">Who creates the games on your site?</h3>
+              <p class="text-gray-300">We feature games from various developers, including our custom puzzle creator which we developed. Games like Jigsaw Fantasy are created by third-party developers and embedded on our site with proper attribution. We carefully select high-quality games that align with our standards.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Blog/Articles Page -->
+    <div id="blog" class="page-content">
+      <section class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8">Puzzle Tips & Strategies</h1>
+        <p class="text-xl text-gray-300 mb-8">Enhance your puzzle-solving skills with our expert tips and strategies!</p>
+        
+        <div class="bg-gray-800 rounded-xl p-8 mb-8">
+          <h2 class="text-2xl font-bold mb-4">How to Solve Jigsaw Puzzles Like a Pro</h2>
+          <p class="text-gray-300 mb-4">
+            Whether you're new to jigsaw puzzles or looking to improve your skills, these proven strategies will help you solve puzzles more efficiently and enjoyably.
+          </p>
+          
+          <div class="mt-6 space-y-6">
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-blue-400">1. Sort Pieces by Color and Pattern</h3>
+              <p class="text-gray-300">Begin by sorting pieces into groups based on color, pattern, or distinctive features. This makes it easier to find pieces that belong to specific sections of the puzzle.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-green-400">2. Start with the Border</h3>
+              <p class="text-gray-300">Always begin by assembling the border. Look for pieces with straight edges to form the framework of your puzzle. This gives you a defined space to work within.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-purple-400">3. Work on Small Sections</h3>
+              <p class="text-gray-300">Instead of trying to tackle the entire puzzle at once, focus on completing small sections or distinctive elements. This provides a sense of accomplishment and momentum.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-yellow-400">4. Use the Picture as a Guide</h3>
+              <p class="text-gray-300">Regularly refer to the puzzle image (either the box art or digital preview). This helps you understand where pieces might fit and visualize the completed sections.</p>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-red-400">5. Take Breaks</h3>
+              <p class="text-gray-300">If you're feeling stuck, step away for a while. Returning with fresh eyes often helps you spot connections you might have missed earlier.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gray-800 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-blue-400">Choosing the Right Puzzle</h3>
+            <p class="text-gray-300">Select puzzles that match your skill level and interests. Beginners should start with puzzles featuring clear sections and distinct colors, while experienced solvers can challenge themselves with gradients and patterns.</p>
+            <p class="text-gray-300 mt-2">Consider the number of pieces - 300-500 pieces is ideal for most adults, while 1000+ pieces provides a more substantial challenge.</p>
+          </div>
+          
+          <div class="bg-gray-800 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-3 text-green-400">Creating an Optimal Workspace</h3>
+            <p class="text-gray-300">Ensure you have adequate lighting to distinguish colors and patterns accurately. A well-lit room reduces eye strain and helps you spot subtle differences between pieces.</p>
+            <p class="text-gray-300 mt-2">Use a large, flat surface that allows you to spread out pieces. Sorting trays or containers can help organize pieces by type or color.</p>
+          </div>
+        </div>
+        
+        <div class="bg-gray-800 rounded-xl p-8">
+          <h2 class="text-2xl font-bold mb-4">The History of Jigsaw Puzzles</h2>
+          <p class="text-gray-300 mb-4">
+            Jigsaw puzzles have a fascinating history dating back to the 1760s when European mapmakers mounted maps on wood and cut them into small pieces. These early "dissected maps" were used as educational tools to teach geography.
+          </p>
+          <p class="text-gray-300">
+            The name "jigsaw" puzzle came about in the 1880s when fretsaws (the precursor to modern jigsaws) were used to cut the puzzles. Cardboard puzzles became popular in the 20th century, making them more affordable and accessible to the masses.
+          </p>
+          <p class="text-gray-300 mt-4">
+            Today, jigsaw puzzles remain popular worldwide, with digital versions bringing this classic pastime to new audiences. The satisfying process of finding connections and seeing the image emerge piece by piece continues to captivate people of all ages.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-12 pb-8 mt-16 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center mr-3">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <span class="text-lg font-bold">Jigsaw Puzzles</span>
+          </div>
+          <p class="text-gray-400 text-sm">The best collection of free online jigsaw puzzles and puzzle games. Enjoy Jigsaw Fantasy and create your own custom puzzles!</p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#home" class="hover:text-white page-nav" data-page="home">Home</a></li>
+            <li><a href="#custom-puzzles" class="hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a></li>
+            <li><a href="#online-games" class="hover:text-white page-nav" data-page="online-games">All Games</a></li>
+            <li><a href="#blog" class="hover:text-white page-nav" data-page="blog">Puzzle Tips</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#about" class="hover:text-white page-nav" data-page="about">About Us</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Stay Updated</h4>
+          <p class="text-gray-400 text-sm mb-4">Subscribe to our newsletter for new puzzle updates and tips!</p>
+          <div class="flex">
+            <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 w-full">
+            <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r text-white">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+        <p>&copy; 2025 jigsawgame.online. All rights reserved. | Play Jigsaw Fantasy and more puzzle games for free!</p>
+        <p class="mt-2">Games are provided by third-party developers and are used under appropriate licenses.</p>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // Mobile menu functionality
+    // Page Navigation System
     document.addEventListener('DOMContentLoaded', function() {
-      const menuButton = document.getElementById('menu-toggle');
+      const pages = document.querySelectorAll('.page-content');
+      const navLinks = document.querySelectorAll('.page-nav');
       const mobileMenu = document.getElementById('mobile-menu');
+      const menuToggle = document.getElementById('menu-toggle');
       const closeMenu = document.getElementById('close-menu');
       
-      menuButton.addEventListener('click', function() {
-        mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      });
+      // Update page title based on navigation
+      function updatePageTitle(pageId) {
+        const titles = {
+          'home': 'Jigsaw Fantasy - Play Free Online Jigsaw Puzzles | jigsawgame.online',
+          'custom-puzzles': 'Create Custom Jigsaw Puzzles | jigsawgame.online',
+          'online-games': 'More Puzzle Games | jigsawgame.online',
+          'about': 'About Us | jigsawgame.online',
+          'blog': 'Puzzle Tips & Strategies | jigsawgame.online'
+        };
+        document.title = titles[pageId] || 'Jigsaw Puzzles Online';
+      }
       
-      closeMenu.addEventListener('click', function() {
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-      });
+      // Page switching function
+      function showPage(pageId) {
+        pages.forEach(page => page.classList.remove('active'));
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+          targetPage.classList.add('active');
+          updatePageTitle(pageId);
+          window.scrollTo(0, 0);
+          
+          // Track page view
+          if (typeof gtag !== 'undefined') {
+            gtag('config', 'G-G1E7NHPMHN', {
+              'page_title': document.title,
+              'page_location': window.location.origin + '#' + pageId
+            });
+          }
+        }
+      }
       
-      // Close menu when clicking on links
-      const menuLinks = mobileMenu.querySelectorAll('a');
-      menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
+      // Navigation click handlers
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const pageId = this.dataset.page;
+          showPage(pageId);
           mobileMenu.classList.add('hidden');
           document.body.style.overflow = 'auto';
         });
       });
       
-      // Track outbound links to games
-      document.querySelectorAll('.game-iframe').forEach(iframe => {
-        iframe.addEventListener('load', function() {
-          gtag('event', 'game_view', {
-            'game_name': iframe.closest('.game-card').querySelector('h3').textContent,
-            'event_category': 'Game Interaction'
+      // Mobile menu
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Tab switching for custom puzzles
+      const galleryBtn = document.getElementById('gallery-btn');
+      const uploadBtn = document.getElementById('upload-btn');
+      const gallerySection = document.getElementById('gallery-section');
+      const uploadSection = document.getElementById('upload-section');
+      
+      galleryBtn?.addEventListener('click', () => {
+        galleryBtn.classList.add('active');
+        uploadBtn.classList.remove('active');
+        gallerySection.style.display = 'block';
+        uploadSection.style.display = 'none';
+      });
+      
+      uploadBtn?.addEventListener('click', () => {
+        uploadBtn.classList.add('active');
+        galleryBtn.classList.remove('active');
+        uploadSection.style.display = 'block';
+        gallerySection.style.display = 'none';
+      });
+
+      // Handle initial hash in URL
+      if (window.location.hash) {
+        const pageId = window.location.hash.substring(1);
+        showPage(pageId);
+      }
+    });
+    
+    // Jigsaw Puzzle Game Engine
+    class JigsawPuzzle {
+      constructor() {
+        this.canvas = document.getElementById('puzzle-board');
+        this.ctx = this.canvas.getContext('2d');
+        this.pieces = [];
+        this.selectedPiece = null;
+        this.moves = 0;
+        this.startTime = null;
+        this.timerInterval = null;
+        this.completed = false;
+        this.imageUrl = null;
+        this.image = new Image();
+        this.difficulty = 25;
+        this.pieceSize = 0;
+        this.cols = 0;
+        this.rows = 0;
+        
+        this.galleryImages = [
+          'https://i.postimg.cc/MHbQ1kPZ/1.jpg',
+          'https://i.postimg.cc/sfpSkSjF/2.jpg',
+          'https://i.postimg.cc/13zqVjpP/3.jpg',
+          'https://i.postimg.cc/xTnHnC8X/4.jpg',
+          'https://i.postimg.cc/X7L5JbBQ/5.jpg',
+          'https://i.postimg.cc/VkHbqWRt/6.jpg',
+          'https://i.postimg.cc/zfbH0Htc/7.jpg',
+          'https://i.postimg.cc/cJpgj1P4/8.jpg',
+          'https://i.postimg.cc/B62LG9G5/9.jpg',
+          'https://i.postimg.cc/KjN1RPjR/10.jpg'
+        ];
+        
+        this.selectedImageIndex = 0;
+        this.setupEventListeners();
+      }
+      
+      setupEventListeners() {
+        // Gallery image selection
+        document.querySelectorAll('.gallery-img').forEach(img => {
+          img.addEventListener('click', (e) => {
+            document.querySelectorAll('.gallery-img').forEach(i => i.classList.remove('border-blue-500'));
+            e.target.classList.add('border-blue-500');
+            this.selectedImageIndex = parseInt(e.target.dataset.index);
           });
         });
-      });
-    });
+        
+        // Upload image
+        const uploadInput = document.getElementById('image-upload');
+        uploadInput?.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            if (file.size > 5 * 1024 * 1024) {
+              alert('File size must be less than 5MB');
+              return;
+            }
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              this.imageUrl = event.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+        
+        // Start puzzle button
+        document.getElementById('start-puzzle')?.addEventListener('click', () => {
+          this.startGame();
+        });
+        
+        // Game controls
+        document.getElementById('show-preview')?.addEventListener('click', () => {
+          const preview = document.getElementById('preview-image');
+          preview.style.display = preview.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        document.getElementById('solve-puzzle')?.addEventListener('click', () => {
+          this.solvePuzzle();
+        });
+        
+        document.getElementById('reset-puzzle')?.addEventListener('click', () => {
+          this.resetPuzzle();
+        });
+        
+        document.getElementById('play-again')?.addEventListener('click', () => {
+          document.getElementById('completion-modal').classList.add('hidden');
+          this.resetPuzzle();
+        });
+        
+        // Canvas events
+        this.canvas.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+        this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+        this.canvas.addEventListener('mouseup', (e) => this.handleMouseUp(e));
+        
+        // Touch events for mobile
+        this.canvas.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+        this.canvas.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+        this.canvas.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+      }
+      
+      startGame() {
+        const uploadBtn = document.getElementById('upload-btn');
+        if (uploadBtn.classList.contains('active') && !this.imageUrl) {
+          alert('Please upload an image first!');
+          return;
+        }
+        
+        if (!uploadBtn.classList.contains('active')) {
+          this.imageUrl = this.galleryImages[this.selectedImageIndex];
+        }
+        
+        this.difficulty = parseInt(document.getElementById('difficulty').value);
+        this.cols = Math.sqrt(this.difficulty);
+        this.rows = Math.sqrt(this.difficulty);
+        
+        document.getElementById('puzzle-container').style.display = 'block';
+        document.getElementById('game-stats').style.display = 'block';
+        
+        this.image.crossOrigin = 'anonymous';
+        this.image.onload = () => {
+          this.initializePuzzle();
+        };
+        this.image.src = this.imageUrl;
+        
+        // Set preview image
+        const preview = document.getElementById('preview-image');
+        preview.src = this.imageUrl;
+      }
+      
+      initializePuzzle() {
+        // Set canvas size
+        const maxWidth = Math.min(800, window.innerWidth - 40);
+        const scale = maxWidth / this.image.width;
+        this.canvas.width = maxWidth;
+        this.canvas.height = this.image.height * scale;
+        
+        this.pieceSize = Math.floor(this.canvas.width / this.cols);
+        this.canvas.width = this.pieceSize * this.cols;
+        this.canvas.height = this.pieceSize * this.rows;
+        
+        // Create pieces
+        this.pieces = [];
+        for (let row = 0; row < this.rows; row++) {
+          for (let col = 0; col < this.cols; col++) {
+            this.pieces.push({
+              id: row * this.cols + col,
+              correctX: col * this.pieceSize,
+              correctY: row * this.pieceSize,
+              currentX: Math.random() * (this.canvas.width - this.pieceSize),
+              currentY: Math.random() * (this.canvas.height - this.pieceSize),
+              width: this.pieceSize,
+              height: this.pieceSize,
+              imageX: (col * this.image.width) / this.cols,
+              imageY: (row * this.image.height) / this.rows,
+              imageWidth: this.image.width / this.cols,
+              imageHeight: this.image.height / this.rows,
+              isCorrect: false,
+              isDragging: false
+            });
+          }
+        }
+        
+        // Shuffle pieces
+        this.shufflePieces();
+        
+        // Start timer
+        this.startTime = Date.now();
+        this.moves = 0;
+        this.completed = false;
+        this.startTimer();
+        this.updateStats();
+        
+        // Draw initial state
+        this.draw();
+      }
+      
+      shufflePieces() {
+        this.pieces.forEach(piece => {
+          piece.currentX = Math.random() * (this.canvas.width - piece.width);
+          piece.currentY = Math.random() * (this.canvas.height - piece.height);
+          piece.isCorrect = false;
+        });
+      }
+      
+      draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Draw grid
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        this.ctx.lineWidth = 1;
+        for (let i = 0; i <= this.cols; i++) {
+          this.ctx.beginPath();
+          this.ctx.moveTo(i * this.pieceSize, 0);
+          this.ctx.lineTo(i * this.pieceSize, this.canvas.height);
+          this.ctx.stroke();
+        }
+        for (let i = 0; i <= this.rows; i++) {
+          this.ctx.beginPath();
+          this.ctx.moveTo(0, i * this.pieceSize);
+          this.ctx.lineTo(this.canvas.width, i * this.pieceSize);
+          this.ctx.stroke();
+        }
+        
+        // Draw pieces
+        this.pieces.forEach(piece => {
+          if (!piece.isDragging) {
+            this.drawPiece(piece);
+          }
+        });
+        
+        // Draw dragging piece on top
+        const draggingPiece = this.pieces.find(p => p.isDragging);
+        if (draggingPiece) {
+          this.drawPiece(draggingPiece);
+        }
+      }
+      
+      drawPiece(piece) {
+        this.ctx.save();
+        
+        // Draw piece
+        this.ctx.drawImage(
+          this.image,
+          piece.imageX,
+          piece.imageY,
+          piece.imageWidth,
+          piece.imageHeight,
+          piece.currentX,
+          piece.currentY,
+          piece.width,
+          piece.height
+        );
+        
+        // Draw border
+        this.ctx.strokeStyle = piece.isCorrect ? '#10B981' : 'rgba(255, 255, 255, 0.3)';
+        this.ctx.lineWidth = piece.isDragging ? 3 : 2;
+        this.ctx.strokeRect(piece.currentX, piece.currentY, piece.width, piece.height);
+        
+        this.ctx.restore();
+      }
+      
+      handleMouseDown(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Find piece under mouse (check from top to bottom)
+        for (let i = this.pieces.length - 1; i >= 0; i--) {
+          const piece = this.pieces[i];
+          if (!piece.isCorrect &&
+              x >= piece.currentX && x <= piece.currentX + piece.width &&
+              y >= piece.currentY && y <= piece.currentY + piece.height) {
+            this.selectedPiece = piece;
+            piece.isDragging = true;
+            this.offsetX = x - piece.currentX;
+            this.offsetY = y - piece.currentY;
+            
+            // Move piece to top
+            this.pieces.splice(i, 1);
+            this.pieces.push(piece);
+            break;
+          }
+        }
+      }
+      
+      handleMouseMove(e) {
+        if (this.selectedPiece && this.selectedPiece.isDragging) {
+          const rect = this.canvas.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          this.selectedPiece.currentX = x - this.offsetX;
+          this.selectedPiece.currentY = y - this.offsetY;
+          
+          // Keep piece within canvas
+          this.selectedPiece.currentX = Math.max(0, Math.min(this.canvas.width - this.selectedPiece.width, this.selectedPiece.currentX));
+          this.selectedPiece.currentY = Math.max(0, Math.min(this.canvas.height - this.selectedPiece.height, this.selectedPiece.currentY));
+          
+          this.draw();
+        }
+      }
+      
+      handleMouseUp(e) {
+        if (this.selectedPiece) {
+          this.selectedPiece.isDragging = false;
+          
+          // Check if piece is in correct position (with tolerance)
+          const tolerance = this.pieceSize * 0.2;
+          if (Math.abs(this.selectedPiece.currentX - this.selectedPiece.correctX) < tolerance &&
+              Math.abs(this.selectedPiece.currentY - this.selectedPiece.correctY) < tolerance) {
+            // Snap to correct position
+            this.selectedPiece.currentX = this.selectedPiece.correctX;
+            this.selectedPiece.currentY = this.selectedPiece.correctY;
+            this.selectedPiece.isCorrect = true;
+            
+            // Check if puzzle is complete
+            this.checkCompletion();
+          }
+          
+          this.moves++;
+          this.updateStats();
+          this.selectedPiece = null;
+          this.draw();
+        }
+      }
+      
+      handleTouchStart(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousedown', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        this.canvas.dispatchEvent(mouseEvent);
+      }
+      
+      handleTouchMove(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousemove', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        this.canvas.dispatchEvent(mouseEvent);
+      }
+      
+      handleTouchEnd(e) {
+        e.preventDefault();
+        const mouseEvent = new MouseEvent('mouseup', {});
+        this.canvas.dispatchEvent(mouseEvent);
+      }
+      
+      checkCompletion() {
+        const correctPieces = this.pieces.filter(p => p.isCorrect).length;
+        const progress = Math.round((correctPieces / this.pieces.length) * 100);
+        document.getElementById('progress').textContent = progress + '%';
+        
+        if (correctPieces === this.pieces.length && !this.completed) {
+          this.completed = true;
+          this.stopTimer();
+          this.showCompletionModal();
+        }
+      }
+      
+      solvePuzzle() {
+        this.pieces.forEach(piece => {
+          piece.currentX = piece.correctX;
+          piece.currentY = piece.correctY;
+          piece.isCorrect = true;
+        });
+        this.draw();
+        this.checkCompletion();
+      }
+      
+      resetPuzzle() {
+        this.shufflePieces();
+        this.moves = 0;
+        this.startTime = Date.now();
+        this.completed = false;
+        this.updateStats();
+        this.draw();
+      }
+      
+      startTimer() {
+        this.stopTimer();
+        this.timerInterval = setInterval(() => {
+          const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+          const minutes = Math.floor(elapsed / 60);
+          const seconds = elapsed % 60;
+          document.getElementById('timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+      }
+      
+      stopTimer() {
+        if (this.timerInterval) {
+          clearInterval(this.timerInterval);
+          this.timerInterval = null;
+        }
+      }
+      
+      updateStats() {
+        document.getElementById('moves').textContent = this.moves;
+        const correctPieces = this.pieces.filter(p => p.isCorrect).length;
+        const progress = Math.round((correctPieces / this.pieces.length) * 100);
+        document.getElementById('progress').textContent = progress + '%';
+      }
+      
+      showCompletionModal() {
+        const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+        const minutes = Math.floor(elapsed / 60);
+        const seconds = elapsed % 60;
+        
+        document.getElementById('final-time').textContent = 
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('final-moves').textContent = this.moves;
+        document.getElementById('completion-modal').classList.remove('hidden');
+        
+        // Track completion
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'puzzle_completed', {
+            'difficulty': this.difficulty,
+            'time': elapsed,
+            'moves': this.moves
+          });
+        }
+      }
+    }
+    
+    // Initialize puzzle game
+    const puzzle = new JigsawPuzzle();
   </script>
 </body>
 </html>
