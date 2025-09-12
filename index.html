@@ -24,7 +24,7 @@
   <!-- Monetag code - PRESERVED -->
   <meta name="monetag" content="8706c7052c8ab14673e8d2e3ddfcd0ec">
   
-  <!-- Structured Data for SEO -->
+  <!-- Structured Data for SEO - Enhanced -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,9 +34,28 @@
     "description": "Play Jigsaw Fantasy and custom jigsaw puzzles online for free",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://jigsawgame.online/?s={search_term_string}",
+      "target": "https://jigsawgame.online/{search_term_string}",
       "query-input": "required name=search_term_string"
     }
+  }
+  </script>
+  
+  <!-- Additional Structured Data for the main page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GameApplication",
+    "name": "Jigsaw Fantasy",
+    "applicationCategory": "GameApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online jigsaw puzzle game with fantasy themes and multiple difficulty levels",
+    "operatingSystem": "Web Browser",
+    "screenshot": "https://i.postimg.cc/MHbQ1kPZ/1.jpg",
+    "softwareVersion": "1.0"
   }
   </script>
   
@@ -180,6 +199,24 @@
       background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
       color: white;
     }
+
+    /* New styles for SEO improvements */
+    .seo-content {
+      padding: 20px;
+      margin: 20px 0;
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 12px;
+    }
+    
+    .seo-content h2 {
+      color: #3B82F6;
+      margin-bottom: 15px;
+    }
+    
+    .seo-content p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body class="text-gray-200">
@@ -195,11 +232,11 @@
         </div>
         
         <nav class="hidden md:flex space-x-6">
-          <a href="#home" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="home">Home</a>
-          <a href="#custom-puzzles" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a>
-          <a href="#online-games" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="online-games">More Games</a>
-          <a href="#about" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="about">About</a>
-          <a href="#blog" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="blog">Puzzle Tips</a>
+          <a href="/" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="home">Home</a>
+          <a href="/custom-puzzles" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a>
+          <a href="/online-games" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="online-games">More Games</a>
+          <a href="/about" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="about">About</a>
+          <a href="/blog" class="nav-link font-medium text-gray-300 hover:text-white page-nav" data-page="blog">Puzzle Tips</a>
         </nav>
         
         <button class="md:hidden text-gray-300 hover:text-white" id="menu-toggle">
@@ -217,11 +254,11 @@
       </button>
       
       <div class="mt-12 space-y-6">
-        <a href="#home" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="home">Home</a>
-        <a href="#custom-puzzles" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a>
-        <a href="#online-games" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="online-games">More Games</a>
-        <a href="#about" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="about">About</a>
-        <a href="#blog" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="blog">Puzzle Tips</a>
+        <a href="/" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="home">Home</a>
+        <a href="/custom-puzzles" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a>
+        <a href="/online-games" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="online-games">More Games</a>
+        <a href="/about" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="about">About</a>
+        <a href="/blog" class="block text-lg font-medium text-gray-300 hover:text-white page-nav" data-page="blog">Puzzle Tips</a>
       </div>
     </div>
   </div>
@@ -237,6 +274,13 @@
           <p class="text-xl md:text-2xl max-w-3xl mx-auto">Discover the magic of Jigsaw Fantasy, create custom puzzles, and enjoy hours of brain-teasing fun!</p>
         </div>
       </section>
+      
+      <!-- SEO Content Section - Added for better indexing -->
+      <div class="seo-content">
+        <h2>Free Online Jigsaw Puzzles - Jigsaw Fantasy</h2>
+        <p>Jigsawgame.online offers the best free online jigsaw puzzle experience with our featured game, Jigsaw Fantasy. Play beautiful fantasy-themed puzzles or create your own custom jigsaw puzzles from your photos. Our platform is optimized for all devices and offers multiple difficulty levels from beginner to expert.</p>
+        <p>Whether you're looking for a quick mental break or an engaging challenge, our collection of jigsaw puzzles provides endless entertainment. Enjoy stunning visuals, smooth gameplay, and the satisfaction of completing intricate puzzles.</p>
+      </div>
       
       <!-- Featured Game: Jigsaw Fantasy - Now on Home Page -->
       <section class="mb-12">
@@ -261,7 +305,8 @@
               frameborder="0" 
               allowfullscreen
               allow="autoplay; encrypted-media"
-              onload="document.getElementById('loader-fantasy').style.display = 'none';">
+              onload="document.getElementById('loader-fantasy').style.display = 'none';"
+              title="Jigsaw Fantasy Puzzle Game">
             </iframe>
           </div>
         </div>
@@ -287,14 +332,14 @@
           <i class="fas fa-upload text-4xl text-green-500 mb-4"></i>
           <h3 class="text-xl font-bold mb-2">Custom Puzzles</h3>
           <p class="text-gray-300 mb-4">Create personalized puzzles from our extensive gallery or upload your own images</p>
-          <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-white page-nav" data-page="custom-puzzles">Create Puzzle</button>
+          <a href="/custom-puzzles" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-white page-nav" data-page="custom-puzzles">Create Puzzle</a>
         </div>
         
         <div class="game-card rounded-xl p-6 text-center">
           <i class="fas fa-trophy text-4xl text-yellow-500 mb-4"></i>
           <h3 class="text-xl font-bold mb-2">Challenge Yourself</h3>
           <p class="text-gray-300 mb-4">Multiple difficulty levels from 25 to 400 pieces for all skill levels</p>
-          <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-white page-nav" data-page="online-games">Explore Games</button>
+          <a href="/online-games" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-white page-nav" data-page="online-games">Explore Games</a>
         </div>
       </div>
       
@@ -327,6 +372,13 @@
         <h1 class="text-3xl md:text-4xl font-bold mb-4">Create Your Own Jigsaw Puzzles</h1>
         <p class="text-xl text-gray-300 mb-8">Choose from our gallery of stunning images or upload your own photos to create personalized puzzles!</p>
         
+        <!-- SEO Content Section - Added for better indexing -->
+        <div class="seo-content">
+          <h2>Create Custom Jigsaw Puzzles Online</h2>
+          <p>Our custom puzzle creator allows you to make personalized jigsaw puzzles from your own images. Upload photos of family, pets, vacations, or special moments and turn them into interactive puzzles. With multiple difficulty levels from 25 to 400 pieces, you can create the perfect challenge for any skill level.</p>
+          <p>The process is simple: select an image from our gallery or upload your own, choose your preferred difficulty level, and start solving! Your images are processed locally in your browser for complete privacy and security.</p>
+        </div>
+        
         <!-- Puzzle Controls -->
         <div class="bg-gray-800 rounded-xl p-6 mb-6">
           <div class="grid md:grid-cols-2 gap-6">
@@ -340,16 +392,16 @@
               <!-- Gallery Section -->
               <div id="gallery-section">
                 <div class="grid grid-cols-5 gap-2 mb-4">
-                  <img src="https://i.postimg.cc/MHbQ1kPZ/1.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="0">
-                  <img src="https://i.postimg.cc/sfpSkSjF/2.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="1">
-                  <img src="https://i.postimg.cc/13zqVjpP/3.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="2">
-                  <img src="https://i.postimg.cc/xTnHnC8X/4.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="3">
-                  <img src="https://i.postimg.cc/X7L5JbBQ/5.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="4">
-                  <img src="https://i.postimg.cc/VkHbqWRt/6.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="5">
-                  <img src="https://i.postimg.cc/zfbH0Htc/7.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="6">
-                  <img src="https://i.postimg.cc/cJpgj1P4/8.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="7">
-                  <img src="https://i.postimg.cc/B62LG9G5/9.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="8">
-                  <img src="https://i.postimg.cc/KjN1RPjR/10.jpg" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="9">
+                  <img src="https://i.postimg.cc/MHbQ1kPZ/1.jpg" alt="Fantasy landscape jigsaw puzzle" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="0">
+                  <img src="https://i.postimg.cc/sfpSkSjF/2.jpg" alt="Magical castle puzzle" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="1">
+                  <img src="https://i.postimg.cc/13zqVjpP/3.jpg" alt="Enchanted forest jigsaw" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="2">
+                  <img src="https://i.postimg.cc/xTnHnC8X/4.jpg" alt="Dragon fantasy puzzle" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="3">
+                  <img src="https://i.postimg.cc/X7L5JbBQ/5.jpg" alt="Mystical creatures jigsaw" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="4">
+                  <img src="https://i.postimg.cc/VkHbqWRt/6.jpg" alt="Fantasy adventure puzzle" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="5">
+                  <img src="https://i.postimg.cc/zfbH0Htc/7.jpg" alt="Magic kingdom jigsaw" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="6">
+                  <img src="https://i.postimg.cc/cJpgj1P4/8.jpg" alt="Mythical world puzzle" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="7">
+                  <img src="https://i.postimg.cc/B62LG9G5/9.jpg" alt="Fantasy art jigsaw" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="8">
+                  <img src="https://i.postimg.cc/KjN1RPjR/10.jpg" alt="Dream world puzzle" class="gallery-img w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-blue-500" data-index="9">
                 </div>
               </div>
               
@@ -417,7 +469,7 @@
         <!-- Puzzle Container -->
         <div id="puzzle-container" style="display: none;">
           <canvas id="puzzle-board"></canvas>
-          <img id="preview-image" style="display: none;" class="mt-4 mx-auto">
+          <img id="preview-image" style="display: none;" class="mt-4 mx-auto" alt="Puzzle preview">
         </div>
         
         <!-- Completion Modal -->
@@ -465,6 +517,13 @@
         <h1 class="text-3xl md:text-4xl font-bold mb-8">More Puzzle Games</h1>
         <p class="text-xl text-gray-300 mb-8">Explore our collection of engaging puzzle games. Each offers a unique challenge and hours of entertainment!</p>
         
+        <!-- SEO Content Section - Added for better indexing -->
+        <div class="seo-content">
+          <h2>Free Online Puzzle Games Collection</h2>
+          <p>Discover our diverse collection of free online puzzle games beyond Jigsaw Fantasy. From daily challenges to 3D spherical puzzles, we offer variety for all puzzle enthusiasts. All games are free to play and work on any device without downloads or registration.</p>
+          <p>Our games include Favorite Puzzles with diverse themes, Daily Puzzle with fresh challenges every day, and innovative 3D puzzles like Pixel Sphere 3D. We regularly add new games to keep the experience fresh and engaging.</p>
+        </div>
+        
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Game 1: Favorite Puzzles -->
           <div class="game-card rounded-2xl p-6">
@@ -483,7 +542,8 @@
                 frameborder="0" 
                 allowfullscreen
                 allow="autoplay; encrypted-media"
-                onload="document.getElementById('loader-1').style.display = 'none';">
+                onload="document.getElementById('loader-1').style.display = 'none';"
+                title="Favorite Puzzles Game">
               </iframe>
             </div>
             <div class="mt-4 p-3 bg-gray-900 rounded-lg">
@@ -508,7 +568,8 @@
                 frameborder="0" 
                 allowfullscreen
                 allow="autoplay; encrypted-media"
-                onload="document.getElementById('loader-2').style.display = 'none';">
+                onload="document.getElementById('loader-2').style.display = 'none';"
+                title="Daily Puzzle Game">
               </iframe>
             </div>
             <div class="mt-4 p-3 bg-gray-900 rounded-lg">
@@ -533,7 +594,8 @@
                 frameborder="0" 
                 allowfullscreen
                 allow="autoplay; encrypted-media"
-                onload="document.getElementById('loader-3').style.display = 'none';">
+                onload="document.getElementById('loader-3').style.display = 'none';"
+                title="Pixel Sphere 3D Puzzle Game">
               </iframe>
             </div>
             <div class="mt-4 p-3 bg-gray-900 rounded-lg">
@@ -580,6 +642,13 @@
     <div id="about" class="page-content">
       <section class="max-w-4xl mx-auto">
         <h1 class="text-3xl md:text-4xl font-bold mb-8">About Jigsaw Puzzles Online</h1>
+        
+        <!-- SEO Content Section - Added for better indexing -->
+        <div class="seo-content">
+          <h2>About JigsawGame.Online - Free Puzzle Games</h2>
+          <p>Jigsawgame.online is a premier destination for free online jigsaw puzzles, featuring the popular Jigsaw Fantasy game and a powerful custom puzzle creator. Our mission is to provide high-quality, engaging puzzle experiences that are accessible to everyone without cost.</p>
+          <p>Founded by puzzle enthusiasts, our platform brings together the best free puzzle games from trusted developers alongside our own custom puzzle technology. We're committed to maintaining a family-friendly, ad-supported environment that respects user privacy while delivering endless puzzle-solving enjoyment.</p>
+        </div>
         
         <div class="bg-gray-800 rounded-xl p-8 mb-8">
           <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
@@ -668,6 +737,13 @@
         <h1 class="text-3xl md:text-4xl font-bold mb-8">Puzzle Tips & Strategies</h1>
         <p class="text-xl text-gray-300 mb-8">Enhance your puzzle-solving skills with our expert tips and strategies!</p>
         
+        <!-- SEO Content Section - Added for better indexing -->
+        <div class="seo-content">
+          <h2>Jigsaw Puzzle Strategies and Tips</h2>
+          <p>Improve your jigsaw puzzle solving skills with our comprehensive guide. Whether you're a beginner or experienced puzzler, these techniques will help you solve puzzles faster and more efficiently. Learn how to approach different types of puzzles, organize your pieces, and develop strategies that work for your solving style.</p>
+          <p>From sorting techniques to pattern recognition, our tips cover all aspects of puzzle solving. Discover how to tackle challenging sections, use the box image effectively, and maintain motivation throughout the solving process.</p>
+        </div>
+        
         <div class="bg-gray-800 rounded-xl p-8 mb-8">
           <h2 class="text-2xl font-bold mb-4">How to Solve Jigsaw Puzzles Like a Pro</h2>
           <p class="text-gray-300 mb-4">
@@ -749,20 +825,20 @@
         <div>
           <h4 class="font-semibold mb-4">Quick Links</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="#home" class="hover:text-white page-nav" data-page="home">Home</a></li>
-            <li><a href="#custom-puzzles" class="hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a></li>
-            <li><a href="#online-games" class="hover:text-white page-nav" data-page="online-games">All Games</a></li>
-            <li><a href="#blog" class="hover:text-white page-nav" data-page="blog">Puzzle Tips</a></li>
+            <li><a href="/" class="hover:text-white page-nav" data-page="home">Home</a></li>
+            <li><a href="/custom-puzzles" class="hover:text-white page-nav" data-page="custom-puzzles">Custom Puzzles</a></li>
+            <li><a href="/online-games" class="hover:text-white page-nav" data-page="online-games">All Games</a></li>
+            <li><a href="/blog" class="hover:text-white page-nav" data-page="blog">Puzzle Tips</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="font-semibold mb-4">Support</h4>
           <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="#about" class="hover:text-white page-nav" data-page="about">About Us</a></li>
-            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-white">Contact Us</a></li>
+            <li><a href="/about" class="hover:text-white page-nav" data-page="about">About Us</a></li>
+            <li><a href="/privacy" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="/terms" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
           </ul>
         </div>
 
@@ -786,7 +862,7 @@
   </footer>
 
   <script>
-    // Page Navigation System
+    // Enhanced Page Navigation System
     document.addEventListener('DOMContentLoaded', function() {
       const pages = document.querySelectorAll('.page-content');
       const navLinks = document.querySelectorAll('.page-nav');
@@ -794,16 +870,92 @@
       const menuToggle = document.getElementById('menu-toggle');
       const closeMenu = document.getElementById('close-menu');
       
-      // Update page title based on navigation
-      function updatePageTitle(pageId) {
-        const titles = {
-          'home': 'Jigsaw Fantasy - Play Free Online Jigsaw Puzzles | jigsawgame.online',
-          'custom-puzzles': 'Create Custom Jigsaw Puzzles | jigsawgame.online',
-          'online-games': 'More Puzzle Games | jigsawgame.online',
-          'about': 'About Us | jigsawgame.online',
-          'blog': 'Puzzle Tips & Strategies | jigsawgame.online'
-        };
-        document.title = titles[pageId] || 'Jigsaw Puzzles Online';
+      // Define page metadata
+      const pageMetadata = {
+        'home': {
+          title: 'Jigsaw Fantasy - Play Free Online Jigsaw Puzzles | jigsawgame.online',
+          description: 'Play Jigsaw Fantasy and create custom jigsaw puzzles for free. Enjoy beautiful fantasy-themed puzzles with multiple difficulty levels on any device.',
+          canonical: 'https://jigsawgame.online/'
+        },
+        'custom-puzzles': {
+          title: 'Create Custom Jigsaw Puzzles | jigsawgame.online',
+          description: 'Create your own custom jigsaw puzzles from our gallery or upload your images. Multiple difficulty levels and fun for all ages.',
+          canonical: 'https://jigsawgame.online/custom-puzzles'
+        },
+        'online-games': {
+          title: 'More Puzzle Games | jigsawgame.online',
+          description: 'Explore our collection of free online puzzle games. Challenge yourself with daily puzzles and 3D puzzles.',
+          canonical: 'https://jigsawgame.online/online-games'
+        },
+        'about': {
+          title: 'About Us | jigsawgame.online',
+          description: 'Learn about jigsawgame.online and our mission to provide free online jigsaw puzzles for everyone.',
+          canonical: 'https://jigsawgame.online/about'
+        },
+        'blog': {
+          title: 'Puzzle Tips & Strategies | jigsawgame.online',
+          description: 'Improve your puzzle solving skills with our tips and strategies. Learn the history of jigsaw puzzles.',
+          canonical: 'https://jigsawgame.online/blog'
+        }
+      };
+      
+      // Update page metadata
+      function updatePageMetadata(pageId) {
+        const metadata = pageMetadata[pageId] || pageMetadata['home'];
+        
+        // Update title
+        document.title = metadata.title;
+        
+        // Update meta description
+        let metaDescription = document.querySelector('meta[name="description"]');
+        if (!metaDescription) {
+          metaDescription = document.createElement('meta');
+          metaDescription.name = 'description';
+          document.head.appendChild(metaDescription);
+        }
+        metaDescription.content = metadata.description;
+        
+        // Update canonical URL
+        let canonicalLink = document.querySelector('link[rel="canonical"]');
+        if (!canonicalLink) {
+          canonicalLink = document.createElement('link');
+          canonicalLink.rel = 'canonical';
+          document.head.appendChild(canonicalLink);
+        }
+        canonicalLink.href = metadata.canonical;
+        
+        // Update Open Graph tags (if needed)
+        updateOpenGraphTags(metadata);
+      }
+      
+      // Update Open Graph tags for social sharing
+      function updateOpenGraphTags(metadata) {
+        // OG Title
+        let ogTitle = document.querySelector('meta[property="og:title"]');
+        if (!ogTitle) {
+          ogTitle = document.createElement('meta');
+          ogTitle.setAttribute('property', 'og:title');
+          document.head.appendChild(ogTitle);
+        }
+        ogTitle.content = metadata.title;
+        
+        // OG Description
+        let ogDescription = document.querySelector('meta[property="og:description"]');
+        if (!ogDescription) {
+          ogDescription = document.createElement('meta');
+          ogDescription.setAttribute('property', 'og:description');
+          document.head.appendChild(ogDescription);
+        }
+        ogDescription.content = metadata.description;
+        
+        // OG URL
+        let ogUrl = document.querySelector('meta[property="og:url"]');
+        if (!ogUrl) {
+          ogUrl = document.createElement('meta');
+          ogUrl.setAttribute('property', 'og:url');
+          document.head.appendChild(ogUrl);
+        }
+        ogUrl.content = metadata.canonical;
       }
       
       // Page switching function
@@ -812,14 +964,18 @@
         const targetPage = document.getElementById(pageId);
         if (targetPage) {
           targetPage.classList.add('active');
-          updatePageTitle(pageId);
+          updatePageMetadata(pageId);
           window.scrollTo(0, 0);
+          
+          // Update browser history without causing redirects
+          const pageUrl = pageId === 'home' ? '/' : `/${pageId}`;
+          window.history.replaceState(null, '', pageUrl);
           
           // Track page view
           if (typeof gtag !== 'undefined') {
             gtag('config', 'G-G1E7NHPMHN', {
               'page_title': document.title,
-              'page_location': window.location.origin + '#' + pageId
+              'page_location': window.location.origin + pageUrl
             });
           }
         }
@@ -867,11 +1023,23 @@
         gallerySection.style.display = 'none';
       });
 
-      // Handle initial hash in URL
-      if (window.location.hash) {
-        const pageId = window.location.hash.substring(1);
-        showPage(pageId);
+      // Handle initial URL path
+      const path = window.location.pathname;
+      let pageId = 'home';
+      
+      if (path === '/') {
+        pageId = 'home';
+      } else if (path.startsWith('/custom-puzzles')) {
+        pageId = 'custom-puzzles';
+      } else if (path.startsWith('/online-games')) {
+        pageId = 'online-games';
+      } else if (path.startsWith('/about')) {
+        pageId = 'about';
+      } else if (path.startsWith('/blog')) {
+        pageId = 'blog';
       }
+      
+      showPage(pageId);
     });
     
     // Jigsaw Puzzle Game Engine
